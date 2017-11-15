@@ -26,6 +26,18 @@ const snapshotToArray = snapshot => {
     console.log(store.getState.tasks);
  };
 
+ export function  addStage (text) {
+    
+       let stages = [...store.getState().stages];
+       stages.push (  text )
+       /*store.setState ({
+          stages : stages
+       })  */
+    
+       firebase.database().ref('stages').push (text);
+    }
+    
+
  export const readAllTasks = () => {
     firebase.database()
           .ref('tasks/')

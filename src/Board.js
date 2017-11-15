@@ -4,7 +4,7 @@ import Logo from './img/logo.png'
 import { connect } from "redux-zero/react";
 import { Grid, Row, Col, Thumbnail, Button } from 'react-bootstrap';
 import { HashRouter, Switch, Route, NavLink, Redirect } from 'react-router-dom';
-import { addTask, readAllTasks, deleteTask } from "./actions";
+import { addTask, addStage,readAllTasks, deleteTask } from "./actions";
 
 const Header = () => {
     return (
@@ -43,7 +43,7 @@ const TaskAdd = ({ task, title }) => {
         </div>
     );
 }
-const Task = ({ task, title,id }) => {
+const Task = ({ task, title, id }) => {
     const onSubmit = (e) => {
         e.preventDefault();
         addTask(this.nameInputRef.value);
@@ -82,21 +82,15 @@ const Board = ({ cards }) => {
         <div>
             <Header />
             <div className="contenedor" id="contenedorGeneral">
-                <Col md={2}>
-                    <div className="divTask">
-                        <ul>
-                            {UserTask}
-                        </ul>
-                    </div>
-                </Col>
-                <Col md={2}>
-                    <div id="cajitas" className="d-inlineblock">
-                        <button id="btnAddList" >Add List ...</button>
-                    </div>
-                    <div className="divTask d-inlineblock">
-                        <TaskAdd />
-                    </div>
-                </Col>
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    addStage(this.stageInputRef.value);
+                }}>
+                    <input type="text" ref={e => this.stageInputRef = e} />
+                    <button type="submit" id="btnAddList" >
+                        save list
+               </button>
+                </form>
 
             </div>
         </div>
