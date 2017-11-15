@@ -11,56 +11,55 @@ var config = {
 };
 firebase.initializeApp(config);
 
-const snapshotToArray = snapshot => {
-    let tasks = []
-    snapshot.forEach(childSnapshot => {
-       let item = childSnapshot.val();
-       let key = childSnapshot.key;
-       item.id = key;
-       tasks.push( item );
-     });
-
-    store.setState({
-       tasks: tasks
-    })
-    console.log(store.getState.tasks);
- };
-
- export function  addStage (text) {
-    
-       let stages = [...store.getState().stages];
-       stages.push (  text )
-       /*store.setState ({
+export function readBoard () {
+    firebase.database().ref('stages').on ('value', res => {
+       let stages = []
+       res.forEach ( snap  => {
+          const stage = snap.val();
+          stages.push (stage);
+       })
+       store.setState ({
           stages : stages
-       })  */
-    
-       firebase.database().ref('stages').push (text);
-    }
-    
-
- export const readAllTasks = () => {
-    firebase.database()
-          .ref('tasks/')
-          .on('value', (res) => {
-             snapshotToArray(res)
-          });
+       }) 
+    });
+ 
+    firebase.database().ref('tasks').on ('value', res => {
+       let tasks = [];
+       res.forEach ( snap  => {
+           const task = snap.val();
+           tasks.push (task)
+       })      
+       store.setState ({
+          tasks : tasks
+       }) 
+    });   
  }
-
- export  async function addTask (task){
-    const addTaskList = [...store.getState().cards]
-    const newcard = {
-        task: task
-     };
-     const res = await  firebase.database().ref('tasks/').push (newcard);
-     newcard.id = res.key;
-  
-     const newCard=addTaskList.concat(newcard);
-    store.setState({
-        cards: newCard
-    })
-
-}
-
-export const deleteTask = (id) => {
-    firebase.database().ref('tasks/').child(id).remove();
+ 
+ export function  addStage (text) {
+ 
+    let stages = [...store.getState().stages];
+    stages.push (  text )
+    /*store.setState ({
+       stages : stages
+    })  */
+ 
+    firebase.database().ref('stages').push (text);
+ }
+ 
+ export function  addTask (stage, text) {
+    console.log ('addTask:', stage + ' - ' +  text);
+ 
+    let tasks = [...store.getState().tasks];
+ 
+    let newTask = {
+       id : store.getState().tasks.length,
+       title: text,
+       stage : stage
+    } 
+ 
+    firebase.database().ref('tasks/' + newTask.id).set (newTask);
+    /*
+    store.setState ({
+       tasks : tasks
+    })  */
  }
