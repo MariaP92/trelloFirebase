@@ -9,7 +9,9 @@ const initialState = {
       email :  null,
       userName :  null,
       lastName :  null,
-      pass :  null      
+      pass :  null,
+      userStages : [],
+      userTasks: []      
    }  
 };
 
