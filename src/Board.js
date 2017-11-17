@@ -12,9 +12,9 @@ import { signOut } from './actions';
 
 const Header = () => {
     return (
-        
-            <div className="cabecera">
-                <div className="container-fluid">
+
+        <div className="cabecera">
+            <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-10">
                         <div className="mensaje">
@@ -22,6 +22,7 @@ const Header = () => {
                         </div>
                     </div>
                     <div className="col-md-2">
+
                         {/* <p>Welcome! {user.fullname}</p>  */}
                         <button className="logOut" onClick={signOut}>SignOut</button>
                     </div>
@@ -31,7 +32,7 @@ const Header = () => {
     );
 }
 
-const Board = ({ stages, tasks, user }) => {
+const Board = ({ stages, tasks, successLogin}) => {
     const list = stages.map(stage => {
         return <Stage key={stage} title={stage}
             tasks={tasks.filter(e => e.stage === stage)}
@@ -40,8 +41,10 @@ const Board = ({ stages, tasks, user }) => {
 
     return (
         <div>
-            <Header/>
-
+            {
+                !successLogin && <Redirect to="/login" />
+            }
+            <Header />
             <div className="Board-container">
                 <Grid>
 

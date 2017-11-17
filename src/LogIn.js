@@ -23,11 +23,11 @@ const LogIn = ({successLogin}) => {
                     <img src={Logo} className="logoImg" />
                 </div>
                 <div className="form__field">
-                    <label htmlfor="login__username"><i className="fa fa-user" aria-hidden="true"></i><span className="hidden">Username</span></label>
+                    <label htmlFor="login__username"><i className="fa fa-user" aria-hidden="true"></i><span className="hidden">Correo electronico</span></label>
                     <input id="login__username" type="text" name="username" className="form__input" placeholder="Username" required  ref = { e => this.emailInputRef = e}/>
                 </div>
                 <div className="form__field">
-                    <label htmlfor="login__password"><i className="fa fa-unlock-alt" aria-hidden="true"></i><span className="hidden">Password</span></label>
+                    <label htmlFor="login__password"><i className="fa fa-unlock-alt" aria-hidden="true"></i><span className="hidden">Password</span></label>
                     <input id="login__password" type="password" name="password" className="form__input" placeholder="Password" required ref = { e => this.passwordInputRef = e}/>
                 </div>
                 {/* <div align="center">
@@ -37,7 +37,7 @@ const LogIn = ({successLogin}) => {
                     <button type = "submit" className="btnLogin">LOG IN</button>
                 </div>
             </form>
-            <p className="text--center">Do not have an account? <NavLink to="/signup"><a>Sign up now</a></NavLink></p>
+            <p className="text--center">Do not have an account? <NavLink to="/signup">Sign up now</NavLink></p>
         </div>
     );
 }

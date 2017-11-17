@@ -14,7 +14,7 @@ import {
   NavLink
 } from 'react-router-dom'
 
-const App = ({stages, tasks}) => {
+const App = ({stages, tasks,successLogin }) => {
   return (
         <BrowserRouter>
           <div>
@@ -22,13 +22,13 @@ const App = ({stages, tasks}) => {
             <Switch>
               <Route path="/login" render={() => <LogIn />} />
               <Route path="/signup" render={() => <SignUp />} />
-              <Route path="/board" render={() =>  <Board stages={stages}  tasks = {tasks} />} />
+              <Route path="/board" render={() =>  <Board stages={stages}  tasks = {tasks} successLogin ={successLogin } />} />
               <Route component={LogIn} />
             </Switch>
           </div>
         </BrowserRouter>)
 
 };
-const mapToProps = ({stages, tasks})  => ({stages, tasks}) 
+const mapToProps = ({stages, tasks, successLogin })  => ({stages, tasks,successLogin }) 
 
 export default connect(mapToProps)(App);

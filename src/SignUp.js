@@ -23,24 +23,24 @@ const SignUp = ({successLogin}) => {
                     <img src={Logo} className="logoImg" />
                 </div>
                 <div className="form__field">
-                    <label htmlfor="login__username"><i className="fa fa-user" aria-hidden="true"></i><span className="hidden">Firstname</span></label>
+                    <label htmlFor="login__username"><i className="fa fa-user" aria-hidden="true"></i><span className="hidden">Firstname</span></label>
                     <input type="text" name="username" className="form__input" placeholder="Username" required ref = {e => this.UserNameRef = e} />
                 </div>
                 <div className="form__field">
-                    <label htmlfor="login__username"><i className="fa fa-user" aria-hidden="true"></i><span className="hidden">Lastname</span></label>
+                    <label htmlFor="login__username"><i className="fa fa-user" aria-hidden="true"></i><span className="hidden">Lastname</span></label>
                     <input type="text" name="username" className="form__input" placeholder="Lastname" required ref = {e => this.LastNameRef = e} />
                 </div>
                 <div className="form__field">
-                    <label htmlfor="login__username"><i className="fa fa-envelope-o" aria-hidden="true"></i><span className="hidden">Email</span></label>
+                    <label htmlFor="login__username"><i className="fa fa-envelope-o" aria-hidden="true"></i><span className="hidden">Email</span></label>
                     <input type="text" name="email" className="form__input btnEmail" placeholder="e-mail" required ref = {e => this.EmailNameRef = e} />
                 </div>
                 <div className="form__field">
-                    <label htmlfor="login__username"><i className="fa fa-unlock-alt" aria-hidden="true"></i><span className="hidden">Password</span></label>
+                    <label htmlFor="login__username"><i className="fa fa-unlock-alt" aria-hidden="true"></i><span className="hidden">Password</span></label>
                     <input type="password" name="password" className="form__input" placeholder="Password" required ref = {e => this.PassNameRef = e} />
                 </div>
                 
                 {/* <div className="form__field">
-                    <label htmlfor="login__username"><i class="fa fa-unlock-alt" aria-hidden="true"></i><span class="hidden">Confirm Password</span></label>
+                    <label htmlFor="login__username"><i class="fa fa-unlock-alt" aria-hidden="true"></i><span class="hidden">Confirm Password</span></label>
                     <input type="password" name="password" className="form__input" placeholder="Confirm Password" required />
                 </div> */}
                 <label><input type="checkbox" name="terms" /> I agree with the <a href="#">Terms and Conditions</a>.</label>

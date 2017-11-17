@@ -64,7 +64,7 @@ export function readBoard () {
  /**LOG IN -LOG OUT -SIGN IN */
  export function signUp (UserName, fullname, email, pass) 
  {
-    console.log ('signUp' + fullname + email + pass);
+    console.log ('signUp ' + fullname + email + pass);
  
     auth.createUserWithEmailAndPassword (email, pass).then ( user => {
        let newuser = {
