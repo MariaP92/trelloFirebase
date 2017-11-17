@@ -30,12 +30,12 @@ const Header = () => {
     );
 }
 
-const Board = ({ stages, tasks, successLogin}) => {
-    const list = stages.map(stage => {
-        return <Stage key={stage} title={stage}
-            tasks={tasks.filter(e => e.stage === stage)}
-        />
-    });
+const MainBoard = ({ stages, tasks, successLogin}) => {
+    // const list = stages.map(stage => {
+    //     return <Stage key={stage} title={stage}
+    //         tasks={tasks.filter(e => e.stage === stage)}
+    //     />
+    // });
 
     return (
         <div>
@@ -48,13 +48,10 @@ const Board = ({ stages, tasks, successLogin}) => {
 
                     <Row>
                         <Col md={12}>
-                            <div className="Board-column">
-                                <form onSubmit={(e) => {
-                                    e.preventDefault();
-                                    addStage(this.stageInputRef.value);
-                                }}>
-                                    <input type="text" ref={e => this.stageInputRef = e} />
-                                    <button type="submit" className="form__input" id="btnAddList" > save list</button>
+                            <div className="Board-columnMain">
+                                <form>
+                                    {/* <input type="text" ref={e => this.stageInputRef = e} /> */}
+                                    <button type="submit" className="form__input"> save Board</button>
                                 </form>
                             </div>
                         </Col>
@@ -62,7 +59,7 @@ const Board = ({ stages, tasks, successLogin}) => {
                     <Row>
                         <Col md={12}>
                             <div className="Board-column">
-                                {list}
+                                {/* {list} */}
                             </div>
                         </Col>
                     </Row>

@@ -39,12 +39,7 @@ const SignUp = ({successLogin}) => {
                     <input type="password" name="password" className="form__input" placeholder="Password" required ref = {e => this.PassNameRef = e} />
                 </div>
                 
-                {/* <div className="form__field">
-                    <label htmlFor="login__username"><i class="fa fa-unlock-alt" aria-hidden="true"></i><span class="hidden">Confirm Password</span></label>
-                    <input type="password" name="password" className="form__input" placeholder="Confirm Password" required />
-                </div> */}
                 <label><input type="checkbox" name="terms" /> I agree with the <a href="#">Terms and Conditions</a>.</label>
-                {/* <NavLink to="/board"></NavLink> */}
                 <input type="submit" value="Sign up" className="btn btn-primary pull-right" />
                 <div className="clearfix"></div>
             </form>

@@ -30,9 +30,6 @@ const LogIn = ({successLogin}) => {
                     <label htmlFor="login__password"><i className="fa fa-unlock-alt" aria-hidden="true"></i><span className="hidden">Password</span></label>
                     <input id="login__password" type="password" name="password" className="form__input" placeholder="Password" required ref = { e => this.passwordInputRef = e}/>
                 </div>
-                {/* <div align="center">
-                    <NavLink to="/board"><input type="submit" value="Sign In" /></NavLink>
-                </div> */}
                 <div align="center">
                     <button type = "submit" className="btnLogin">LOG IN</button>
                 </div>
