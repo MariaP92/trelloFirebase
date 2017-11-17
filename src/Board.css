@@ -13,8 +13,7 @@
     color: white;
     font-size: 16px;
     font-family: cursive;
-    margin: 0px;
-    padding: 0px;
+
 }
 
 /*CONTENEDOR*/
@@ -122,3 +121,8 @@ li{
     height: 100%;
   }
 
+.logOut{
+    background-color: #ea4c88;
+    margin-top: 30px; 
+    
+}

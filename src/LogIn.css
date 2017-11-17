@@ -195,6 +195,13 @@
     background-color: #d44179;
   }
   
+  .btnLogin{
+    background-color: #d44179;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100px;
+  }
   /* modules/text.css */
   
   p {

@@ -20,11 +20,9 @@ const App = ({stages, tasks}) => {
           <div>
     
             <Switch>
-              <Route path="/portfoliomaria"
-                render={() => <Redirect to={'/'} />} />
               <Route path="/login" render={() => <LogIn />} />
               <Route path="/signup" render={() => <SignUp />} />
-              <Route path="/board" render={() =>  <Board stages={stages}  tasks = {tasks}/>} />
+              <Route path="/board" render={() =>  <Board stages={stages}  tasks = {tasks} />} />
               <Route component={LogIn} />
             </Switch>
           </div>

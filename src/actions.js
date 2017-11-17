@@ -11,6 +11,10 @@ var config = {
 };
 firebase.initializeApp(config);
 
+const database = firebase.database();
+const auth = firebase.auth();
+const storage = firebase.storage();
+
 export function readBoard () {
     firebase.database().ref('stages').on ('value', res => {
        let stages = []
@@ -54,20 +58,17 @@ export function readBoard () {
     } 
  
     firebase.database().ref('tasks/' + newTask.id).set (newTask);
-    /*
-    store.setState ({
-       tasks : tasks
-    })  */
+
  }
 
  /**LOG IN -LOG OUT -SIGN IN */
- export function signUp (fullname, email, pass, survey, question, options) 
+ export function signUp (UserName, fullname, email, pass) 
  {
     console.log ('signUp' + fullname + email + pass);
  
     auth.createUserWithEmailAndPassword (email, pass).then ( user => {
        let newuser = {
-          fullname, email, survey, question, options
+         UserName, fullname, email, pass
        }
        database.ref ('users/' + user.uid).set (newuser);   
  
@@ -82,10 +83,8 @@ export function readBoard () {
              user: {
                 id : user.uid,
                 email :  fullUserInfo.email,
-                fullname :  fullUserInfo.fullname,
-                survey :  fullUserInfo.survey,
-                question :  fullUserInfo.question,
-                options :  fullUserInfo.options               
+                userName : fullUserInfo.UserName,
+                lastName :  fullUserInfo.fullname
              }
           })
        })
@@ -114,12 +113,10 @@ export function readBoard () {
           console.log ('full info ', fullUserInfo);
           store.setState ( {
              user: {
-                id : userObj.uid,
+                id : user.uid,
                 email :  fullUserInfo.email,
-                fullname :  fullUserInfo.fullname,
-                survey :  fullUserInfo.survey,
-                question :  fullUserInfo.question,
-                options :  fullUserInfo.options               
+                userName : fullUserInfo.UserName,
+                lastName :  fullUserInfo.fullname      
              }
           })
        })
