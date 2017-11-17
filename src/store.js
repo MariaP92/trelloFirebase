@@ -1,16 +1,18 @@
 import createStore from 'redux-zero'
-let Cards = [
-    {
-        id:0,
-        title: 'To Do',
-        task:'Tarea 1',
-        add: false
-    }
-]
 
 const initialState = {
-    cards: Cards
-}
+   stages: [ ],
+   tasks: [ ],
+   successLogin : false,
+   user : {
+      id : null,
+      email :  null,
+      fullname :  null,
+      survey :  null,
+      question :  null,
+      options :  null            
+   }  
+};
 
-const store = createStore(initialState);
-export default store;
+const store = createStore (initialState);
+export default store;   

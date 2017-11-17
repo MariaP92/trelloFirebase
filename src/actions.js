@@ -39,10 +39,6 @@ export function readBoard () {
  
     let stages = [...store.getState().stages];
     stages.push (  text )
-    /*store.setState ({
-       stages : stages
-    })  */
- 
     firebase.database().ref('stages').push (text);
  }
  
